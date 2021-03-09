@@ -1,7 +1,7 @@
 <template>
   <header>
-  <h1>Github API client example</h1>
-</header>
+    <h1>Github API client example</h1>
+  </header>
 
 </template>
 

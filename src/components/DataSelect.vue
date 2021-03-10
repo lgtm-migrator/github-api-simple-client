@@ -2,7 +2,7 @@
   <div>
   <label>Select the data to be displayed</label>
 </div>
-  <select v-on:change="changeDataToDisplayed($event)" 
+  <select v-on:change="changeDataToBeDisplayed($event)" 
     >
     <option value="-1">Select your option</option>
     <option v-for="option in selectOptions" v-bind:key="option"
@@ -22,13 +22,14 @@ export default {
     }
   },
 	methods: {
-		changeDataToDisplayed(event){
-      if(event.target.value != -1) emitter.emit("change-data-option", event.target.value)
+		changeDataToBeDisplayed(event){
+      if(event.target.value != -1) {
+        emitter.emit("change-data-option", event.target.value)
+      }
 		}
 	}
 }
 </script>
 
 <style>
-
 </style>

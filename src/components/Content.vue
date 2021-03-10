@@ -25,26 +25,17 @@ export default {
       axios.get(url)
       .then(res => {
         if(res.data[0] == undefined) {
-        this.currentOption = this.selectOptions[0].data
-
-        this.currentOption.map(prop => {
-            prop.value = res.data[prop.name]
-          })
-        }
-         else {
+          this.currentOption = this.selectOptions[0].data
+          this.currentOption.map(prop => prop.value = res.data[prop.name])
+        } else {
           this.currentOption = this.selectOptions[1].data
-          this.currentOption.map(prop => {
-            prop.value = res.data[0][prop.name]
-          })
+          this.currentOption.map(prop => prop.value = res.data[0][prop.name])
         }
       })
-      .then()
     }
   },
   mounted() {
-    emitter.on('change-data-option', value => {
-      this.getData(value)
-    })
+    emitter.on('change-data-option', value => this.getData(value))
   },
 }
 </script>

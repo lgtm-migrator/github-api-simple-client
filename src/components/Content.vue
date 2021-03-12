@@ -1,35 +1,47 @@
 <template>
 <div>
-  <div v-for="item in currentOption" v-bind:key="item.name">
-      <label  :for="item.name" >{{item.title}}:</label><br>
-      <img :src="item.value" width="30" v-if="item.name == 'avatar_url'">
-      <h4 v-bind:id="item.name" v-else>{{item.value}}</h4>
+  <div 
+    v-for="(item, key) in data" 
+    :key="key"
+  >
+      <label> 
+        {{ key.toUpperCase() }}:
+      </label>
+      <br>
+      <img 
+        v-if="key === 'avatar_url'" 
+        width="30" 
+        :src="item" 
+      >
+      <h4 
+        v-else
+      >
+      {{ item }}
+      </h4>
   </div>
 </div>
 </template>
 
 <script>
-import {emitter, selectOptions} from '../main.js'
+import { emitter } from '../main.js'
 import axios from 'axios'
 
 export default {
   name: 'Content',
   data: function(){
     return {
-      selectOptions,
-      currentOption: null
+      data: {},
+      issueData: [],
     }
   },
   methods: {
     getData(url){
       axios.get(url)
       .then(res => {
-        if(res.data[0] == undefined) {
-          this.currentOption = this.selectOptions[0].data
-          this.currentOption.map(prop => prop.value = res.data[prop.name])
+        if(res.data[0] === undefined) {
+          this.data = res.data
         } else {
-          this.currentOption = this.selectOptions[1].data
-          this.currentOption.map(prop => prop.value = res.data[0][prop.name])
+          this.data = res.data[0]
         }
       })
     }

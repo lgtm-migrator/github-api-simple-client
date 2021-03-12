@@ -16,7 +16,7 @@
         :key="option"
         :value="option.url"
       >
-        {{option.title}}
+        {{ option.title }}
       </option>
     </select>
     <hr>
@@ -34,12 +34,12 @@ export default {
     }
   },
   methods: {
-		changeDataToBeDisplayed(event) {
+    changeDataToBeDisplayed(event) {
       if(event.target.value != -1) {
         emitter.emit('change-data-option', event.target.value)
       }
 		}
-	}
+  }
 }
 </script>
 

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div>
-    <label>Select the data to be displayed</label>
-    </div>
+    <label>
+      Select the data to be displayed
+    </label>
     <select 
       @change="changeDataToBeDisplayed($event)" 
     >
@@ -38,7 +38,7 @@ export default {
       if(event.target.value != -1) {
         emitter.emit('change-data-option', event.target.value)
       }
-		}
+    }
   }
 }
 </script>

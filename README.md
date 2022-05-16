@@ -1,24 +1,8 @@
-# github_api
+# Github API Client
 
-## Project setup
-```
-npm install
-```
+## Objetivo
+Este projeto tem como objetivo consumir a API do Github para fins de aprendizado do funcionamento da biblioteca `Axios` com **Vue.js**.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Dados
+Os dados exibidos na tabela são do perfil oficial do Github e da página de Issues deste projeto.
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
